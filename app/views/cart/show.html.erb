@@ -1,0 +1,33 @@
+<h2 class="fw-bold text-mauve mb-4">Votre panier</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th>Prix</th>
+      <th>Quantité</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% total = 0 %>
+    <% @products.each do |product| %>
+      <% quantity = @cart[product.id.to_s] %>
+      <% subtotal = product.price * quantity %>
+      <% total += subtotal %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= number_to_currency(product.price, unit: "€") %></td>
+        <td><%= quantity %></td>
+        <td><%= number_to_currency(subtotal, unit: "€") %></td>
+        <td><%= button_to "X", cart_remove_path(product_id: product.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="text-end">
+  <h4 class="fw-bold">Total : <%= number_to_currency(total, unit: "€") %></h4>
+  <%= button_to "Payer avec Stripe", checkout_create_path, method: :post, class: "btn btn-mauve mt-3" %>
+</div>

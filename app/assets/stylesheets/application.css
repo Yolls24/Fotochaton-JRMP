@@ -1,0 +1,7 @@
+.text-mauve { color: #9370DB; }
+.text-rose { color: #FF69B4; }
+.btn-rose { background-color: #FF69B4; color: white; border-radius: 12px; }
+.btn-rose:hover { background-color: #ff4fa5; }
+.btn-mauve { background-color: #9370DB; color: white; border-radius: 12px; }
+.btn-mauve:hover { background-color: #7a5dba; }
+

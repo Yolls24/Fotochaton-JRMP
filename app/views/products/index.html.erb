@@ -1,0 +1,19 @@
+<div class="container py-5">
+  <h1 class="text-center fw-bold text-mauve mb-5">Nos Chatons 🐾</h1>
+  <div class="row g-4">
+    <% @products.each do |product| %>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <%= image_tag product.image_url, class: "card-img-top", alt: product.name %>
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <p class="fw-bold text-mauve"><%= number_to_currency(product.price, unit: "€") %></p>
+            <%= link_to "Voir le produit", product_path(product), class: "btn btn-rose" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

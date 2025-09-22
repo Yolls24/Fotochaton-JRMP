@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag @product.image_url, class: "img-fluid rounded shadow-sm" %>
+  </div>
+  <div class="col-md-6">
+    <h2 class="fw-bold text-mauve"><%= @product.name %></h2>
+    <p><%= @product.description %></p>
+    <p class="fw-bold fs-4 text-rose"><%= number_to_currency(@product.price, unit: "€") %></p>
+    <%= button_to "Ajouter au panier", cart_add_path(product_id: @product.id), method: :post, class: "btn btn-mauve" %>
+  </div>
+</div>
