@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <!-- Titre et description de la catégorie -->
+  <h1 class="mb-4"><%= @category.name %></h1>
+  <p class="mb-5"><%= @category.description %></p>
+
+  <!-- Liste des items -->
+  <div class="row g-4">
+    <% @items.each do |item| %>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <%= image_tag item.image, class: "card-img-top", alt: item.name %>
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= item.name %></h5>
+            <p class="card-text"><%= item.description %></p>
+            <p class="fw-bold"><%= number_to_currency(item.price, unit: "€") %></p>
+
+            <!-- Bouton Ajouter au panier -->
+            <%= button_to "Ajouter au panier", cart_add_path(item_id: item.id), method: :post, class: "btn btn-mauve" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Bouton retour accueil -->
+  <div class="mt-5 text-center">
+    <%= link_to "← Retour à l’accueil", root_path, class: "btn btn-secondary" %>
+  </div>
+</div>

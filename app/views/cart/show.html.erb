@@ -12,17 +12,16 @@
   </thead>
   <tbody>
     <% total = 0 %>
-    <% @products.each do |product| %>
-      <% quantity = @cart[product.id.to_s] %>
-      <% subtotal = product.price * quantity %>
-      <% total += subtotal %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= number_to_currency(product.price, unit: "€") %></td>
-        <td><%= quantity %></td>
-        <td><%= number_to_currency(subtotal, unit: "€") %></td>
-        <td><%= button_to "X", cart_remove_path(product_id: product.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
-      </tr>
+    <% @items.each do |item| %>
+      <div class="card mb-3">
+        <%= image_tag item.image, alt: item.name, class: "card-img-top" %>
+        <div class="card-body">
+          <h5><%= item.name %></h5>
+          <p><%= item.description %></p>
+          <p>Quantité : <%= session[:cart][item.id.to_s] %></p>
+          <%= button_to "Supprimer", cart_remove_path(item_id: item.id), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div>
     <% end %>
   </tbody>
 </table>
