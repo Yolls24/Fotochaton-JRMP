@@ -5,3 +5,9 @@
 .btn-mauve { background-color: #9370DB; color: white; border-radius: 12px; }
 .btn-mauve:hover { background-color: #7a5dba; }
 
+.cart-item-image {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
