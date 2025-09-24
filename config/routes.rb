@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/index"
   # Authentification
   devise_for :users
 
@@ -14,6 +15,6 @@ Rails.application.routes.draw do
   post "checkout/create", to: "checkout#create", as: "checkout_create"
 
   # Page d’accueil = liste produits
-  root "products#index"
+  root "home#index"
 end
 
