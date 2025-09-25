@@ -13,6 +13,7 @@
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark">
       <div class="container">
+
         <%= link_to "🐱 FotoChatons", root_path, class: "navbar-brand fw-bold text-mauve" %>
 
         <div class="d-flex align-items-center gap-3">
@@ -28,6 +29,16 @@
             <%= link_to "Mon profil", edit_user_registration_path, class: "btn btn-outline-light" %>
 
             <!-- Déconnexion -->
+        
+        <div class="d-flex gap-2">
+          <% if user_signed_in? %>
+            <%# Lien Admin visible uniquement pour les admins %>
+            <% if current_user.admin? %>
+              <%= link_to "Admin", admin_dashboard_path, class: "btn btn-warning" %>
+            <% end %>
+
+            <%= link_to "Panier", cart_path, class: "btn btn-mauve" %>
+
             <%= button_to "Déconnexion",
                   destroy_user_session_path,
                   method: :delete,
@@ -37,8 +48,6 @@
             <%= link_to "Connexion", new_user_session_path, class: "btn btn-rose" %>
           <% end %>
 
-          <!-- Panier -->
-          <%= link_to "Panier", cart_path, class: "btn btn-mauve" %>
         </div>
       </div>
     </nav>
@@ -55,6 +64,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
-
 
