@@ -5,12 +5,6 @@ Item.destroy_all
 Product.destroy_all
 Cart.destroy_all
 
-namespace :admin do
-  resources :users, only: [] do
-    patch :make_admin, on: :member
-  end
-end
-
 puts "Creating users..."
 # Admin
 admin_user = User.create!(
@@ -35,7 +29,6 @@ cat2 = Category.find_or_create_by!(name: "TELECHARGEMENT") do |c|
 end
 
 puts "Creating items..."
-# Items pour IMPRESSION
 Item.find_or_create_by!(name: "Chaton noir aux yeux bleus") do |item|
   item.description = "Un petit chaton noir avec de magnifiques yeux bleus."
   item.price = 9.99
@@ -50,7 +43,6 @@ Item.find_or_create_by!(name: "Chaton tigré endormi") do |item|
   item.category_id = cat1.id
 end
 
-# Items pour TELECHARGEMENT
 Item.find_or_create_by!(name: "Chaton aquarelle") do |item|
   item.description = "Une photo de chaton traitée comme une peinture aquarelle."
   item.price = 15.00
