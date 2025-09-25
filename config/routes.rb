@@ -14,9 +14,15 @@ Rails.application.routes.draw do
   delete "cart/remove/:item_id", to: "cart#remove", as: "cart_remove"
 
   # Paiement Stripe
-  post "checkout/create", to: "checkout#create", as: "checkout_create"
+  post "checkout/create", to: "checkouts#create", as: "checkout_create"
 
   # Page d’accueil = liste produits
   root "home#index"
+
+  resource :checkout, only: [:show, :create]
+  get 'payments/success', to: 'payments#success'
+  get 'payments/cancel', to: 'payments#cancel'
+
 end
+
 

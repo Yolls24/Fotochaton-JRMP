@@ -1,0 +1,7 @@
+<h2>Paiement</h2>
+
+<p>Total : <%= number_to_currency(@cart.total) %></p>
+
+<%= form_with url: checkout_path, method: :post, local: true do %>
+  <button class="btn btn-success btn-lg">Payer avec Stripe</button>
+<% end %>

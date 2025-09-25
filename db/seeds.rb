@@ -37,3 +37,24 @@ Item.find_or_create_by!(name: "Chaton fleurs") do |item|
   item.image = "chaton_2.jpg"
   item.category = cat2
 end
+# db/seeds.rb
+puts "Cleaning DB..."
+User.destroy_all
+Product.destroy_all
+Cart.destroy_all
+
+puts "Creating users..."
+user = User.create!(email: "alice@foto.com", password: "password", name: "Alice")
+user2 = User.create!(email: "bob@foto.com", password: "password", name: "Bob")
+
+puts "Creating products..."
+p1 = Product.create!(title: "Chaton gris", description: "Photo mignonne 30x30", price_cents: 1500)
+p2 = Product.create!(title: "Chaton tigré", description: "Belle pose", price_cents: 2000)
+
+# Attach sample images (si tu as public/images seed assets)
+if Rails.root.join("db/seeds_images").exist?
+  p1.image.attach(io: File.open(Rails.root.join("db/seeds_images/cat1.jpg")), filename: "cat1.jpg")
+  p2.image.attach(io: File.open(Rails.root.join("db/seeds_images/cat2.jpg")), filename: "cat2.jpg")
+end
+
+puts "Seeding done."
