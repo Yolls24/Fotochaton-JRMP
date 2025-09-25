@@ -23,6 +23,14 @@ Rails.application.routes.draw do
   get 'payments/success', to: 'payments#success'
   get 'payments/cancel', to: 'payments#cancel'
 
+  namespace :admin do
+    get "/", to: "dashboard#index", as: :dashboard
+
+    # Route pour promouvoir un user en admin
+    patch "/users/:id/make_admin", to: "users#make_admin", as: :make_admin_user
+    # Retrograder un admin
+    patch "/users/:id/remove_admin", to: "users#remove_admin", as: :remove_admin_user
+  end
 end
 
 
