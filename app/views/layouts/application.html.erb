@@ -13,9 +13,9 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
       <div class="container">
-        <%= link_to " FotoChatons ", root_path, class: "navbar-brand fw-bold text-mauve" %>
+        <%= link_to "🐱 FotoChatons ", root_path, class: "navbar-brand fw-bold text-mauve" %>
         <div class="d-flex gap-2">
           <% if user_signed_in? %>
             <%= button_to "Déconnexion",
@@ -36,7 +36,7 @@
       <%= yield %>
     </main>
 
-    <footer class="text-center py-4 bg-light mt-auto">
+    <footer class="text-center py-4 bg-secondary mt-auto">
       <p class="mb-0">© 2025 Boutique Chatons - Tous droits réservés.</p>
     </footer>
 
