@@ -16,8 +16,16 @@
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
       <div class="container">
         <%= link_to "🐱 FotoChatons ", root_path, class: "navbar-brand fw-bold text-mauve" %>
+        
         <div class="d-flex gap-2">
           <% if user_signed_in? %>
+            <%# Lien Admin visible uniquement pour les admins %>
+            <% if current_user.admin? %>
+              <%= link_to "Admin", admin_dashboard_path, class: "btn btn-warning" %>
+            <% end %>
+
+            <%= link_to "Panier", cart_path, class: "btn btn-mauve" %>
+
             <%= button_to "Déconnexion",
                   destroy_user_session_path,
                   method: :delete,
@@ -26,8 +34,6 @@
           <% else %>
             <%= link_to "Connexion", new_user_session_path, class: "btn btn-rose" %>
           <% end %>
-
-          <%= link_to "Panier", cart_path, class: "btn btn-mauve" %>
         </div>
       </div>
     </nav>
