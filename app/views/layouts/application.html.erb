@@ -35,16 +35,19 @@
 
               <%= link_to "Panier", cart_path, class: "btn btn-mauve" %>
 
+
               <%= button_to "Déconnexion",
                     destroy_user_session_path,
                     method: :delete,
                     class: "btn btn-rose",
                     form: { class: "d-inline" } %>
             </div>
+
           <% else %>
             <%= link_to "Connexion", new_user_session_path, class: "btn btn-rose" %>
           <% end %>
         </div>
+
       </div>
     </nav>
 
@@ -60,5 +63,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
 
