@@ -4,6 +4,7 @@
 .btn-rose:hover { background-color: #ff4fa5; }
 .btn-mauve { background-color: #9370DB; color: white; border-radius: 12px; }
 .btn-mauve:hover { background-color: #7a5dba; }
+.btn-warning:hover { background-color: rgb(238, 137, 43);}
 
 .cart-item-image {
   height: 200px;
