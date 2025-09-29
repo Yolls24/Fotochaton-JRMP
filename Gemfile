@@ -52,9 +52,15 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # Déjà présent
   gem "web-console"
+
+  # Permet d'ouvrir les mails dans le navigateur au lieu d'utiliser SMTP
+  gem "letter_opener"
+
+  gem "letter_opener_web"
 end
+
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
@@ -67,4 +73,7 @@ gem "stripe", "~> 15.5"
 gem "devise", "~> 4.9"
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'aws-sdk-s3', require: false
+
 

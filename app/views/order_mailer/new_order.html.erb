@@ -1,0 +1,20 @@
+<h1>Nouvelle commande reçue 📦</h1>
+
+<p>
+  Bonjour Admin,<br>
+  Une nouvelle commande a été passée par <strong><%= @user.email %></strong>.
+</p>
+
+<p>
+  Numéro de commande : <strong>#<%= @order.id %></strong><br>
+  Date : <%= @order.created_at.strftime("%d/%m/%Y %H:%M") %>
+</p>
+
+<p>
+  Montant total : <%= number_to_currency(@order.total_price, unit: "€") %>
+</p>
+
+<p>
+  👉 Connectez-vous à l’espace admin pour voir le détail complet.
+</p>
+

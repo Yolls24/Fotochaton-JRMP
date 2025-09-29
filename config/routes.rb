@@ -31,6 +31,16 @@ Rails.application.routes.draw do
     # Retrograder un admin
     patch "/users/:id/remove_admin", to: "users#remove_admin", as: :remove_admin_user
   end
+
+  # ------------------------------
+  # Letter Opener Web (dev uniquement)
+  # ------------------------------
+
+  require "letter_opener_web" if Rails.env.development?
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
 
 
