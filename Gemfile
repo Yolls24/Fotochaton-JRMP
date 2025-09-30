@@ -56,7 +56,7 @@ group :development do
   gem "web-console"
 
   # Permet d'ouvrir les mails dans le navigateur au lieu d'utiliser SMTP
-  gem "letter_opener"
+  # gem "letter_opener"
 
   gem "letter_opener_web"
 end

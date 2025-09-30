@@ -6,15 +6,29 @@
 </p>
 
 <p>
-  Numéro de commande : <strong>#<%= @order.id %></strong><br>
-  Date : <%= @order.created_at.strftime("%d/%m/%Y %H:%M") %>
+  Numéro de commande : <strong>#<%= @shop_order.id %></strong><br>
+  Date : <%= @shop_order.created_at.strftime("%d/%m/%Y %H:%M") %>
 </p>
 
 <p>
-  Montant total : <%= number_to_currency(@order.total_price, unit: "€") %>
+  Montant total : <%= @shop_order.total_price %> €
 </p>
 
 <p>
-  👉 Connectez-vous à l’espace admin pour voir le détail complet.
+  👈 Connectez-vous à l’espace admin pour voir le détail complet.
 </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

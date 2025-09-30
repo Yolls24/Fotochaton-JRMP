@@ -1,10 +1,10 @@
 <div class="container my-5">
-  <h2 class="text-center mb-4">Modifier mon profil 👤</h2>
+  <h2 class="text-center mb-4">Modifier mon profil </h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
     <% if resource.errors.any? %>
       <div class="alert alert-danger">
-        <p><strong>⚠️ Erreurs :</strong></p>
+        <p><strong> Erreurs :</strong></p>
         <ul>
           <% resource.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -38,7 +38,7 @@
       <%= f.label :avatar, "Photo de profil", class: "form-label" %><br>
       <% if resource.avatar.attached? %>
         <div class="mb-2">
-          <%= image_tag resource.avatar.variant(resize_to_fill: [150, 150]).processed, class: "rounded-circle shadow" %>
+          <%= image_tag resource.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle shadow" %>
         </div>
       <% end %>
       <%= f.file_field :avatar, class: "form-control" %>

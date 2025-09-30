@@ -1,3 +1,20 @@
-<h1>Paiement réussi 🎉</h1>
-<p>Merci pour votre commande <%= current_user.name %> !</p>
-<%= link_to 'Retour à la boutique', root_path, class: "btn btn-primary" %>
+<h1>Merci <%= current_user.name || current_user.email %> 🐾</h1>
+
+<p>
+  Votre commande <strong>#<%= @shop_order.id %></strong> a bien été enregistrée.
+</p>
+
+<p>
+  Montant total : <strong><%= number_to_currency(@shop_order.total_price, unit: "€") %></strong>
+</p>
+
+<p>
+  Un email de confirmation vient de vous être envoyé.  
+  Vous recevrez une notification dès que votre commande sera expédiée.
+</p>
+
+<p>
+  <%= link_to "Retour à l’accueil", root_path, class: "btn btn-primary" %>
+</p>
+
+
