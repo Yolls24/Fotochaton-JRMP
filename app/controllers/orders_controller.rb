@@ -2,25 +2,28 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @shoporder = ShopOrder.new
+    @shop_order = ShopOrder.new
   end
 
   def create
-    @shoporder = current_user.shop_orders.new(order_params)
+    @shop_order = current_user.shop_orders.new(order_params)
 
-    if @shoporder.save
-      # Mails envoyés **au user et aux admins**, correctement liés à cette commande
-      OrderMailer.new_order(@shoporder).deliver_now
-      OrderMailer.confirm_order(@shoporder).deliver_now
+    if @shop_order.save
+      # Mails envoyés **au user et aux admins**
+      OrderMailer.new_order(@shop_order).deliver_now
+      OrderMailer.confirm_order(@shop_order).deliver_now
 
-      redirect_to @shoporder, notice: "Votre commande a bien été enregistrée 🐾"
+      # On vide le panier (si stocké en session)
+      session[:cart] = nil  
+
+      redirect_to @shop_order, notice: "Votre commande a bien été enregistrée 🐾"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @shoporder = current_user.shop_orders.find(params[:id])
+    @shop_order = current_user.shop_orders.find(params[:id])
   end
 
   private
@@ -29,6 +32,7 @@ class OrdersController < ApplicationController
     params.require(:shop_order).permit(:total_price, :shipping_address)
   end
 end
+
 
 
   
