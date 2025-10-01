@@ -69,7 +69,7 @@ group :test do
 end
 gem "image_processing", "~> 1.2"
 
-gem "stripe", "~> 15.5"
+gem "stripe", "~> 16.0"
 
 gem "devise", "~> 4.9"
 
